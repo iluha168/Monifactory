@@ -4,6 +4,8 @@
  * put your util or patches here so that you can access them at other scripts
  */
 
+//Bad comment
+
 /**
  * # DO NOT USE THIS!!!!
  * @private
