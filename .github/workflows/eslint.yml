@@ -6,10 +6,6 @@ on:
         required: true
         description: Path to the folder to check
         type: string
-    outputs:
-      outcome:
-        description: success or failure
-        value: ${{ jobs.lint-folder.outputs.outcome }}
 
 permissions:
   contents: read
@@ -33,7 +29,3 @@ jobs:
           npm install
           npx eslint
         shell: bash
-        continue-on-error: true
-
-    outputs:
-      outcome: ${{ steps.eslint.outcome }}

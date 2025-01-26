@@ -1,4 +1,3 @@
 * text=auto
 
-kubejs/**.js eol=crlf
-kubejs/client_scripts/JEI.js eol=crlf linguist-generated=false
+kubejs/** text=auto eol=crlf

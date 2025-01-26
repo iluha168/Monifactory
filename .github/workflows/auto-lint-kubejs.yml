@@ -10,16 +10,3 @@ jobs:
     uses: ./.github/workflows/eslint.yml
     with:
       folder: 'kubejs'
-
-  comment:
-    if: ${{ needs.lint.outputs.outcome == 'failure' }}
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: thollander/actions-comment-pull-request@v3
-        with:
-          message: |
-           ⚠️ **Warning**: [the latest commit](https://github.com/${{ github.event.pull_request.head.repo.full_name }}/commit/${{ github.event.pull_request.head.sha }}) does not pass ESLint!
-
-      - name: Throw error
-        run: exit 1
