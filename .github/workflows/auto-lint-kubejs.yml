@@ -4,8 +4,7 @@ on:
     types: [opened, synchronize]
     paths: 
       - 'kubejs/**'
-permissions:
-  contents: read
+
 jobs:
   lint:
     uses: ./.github/workflows/eslint.yml
@@ -17,12 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ needs.lint.outputs.outcome == 'failure' }}
-        uses: actions/github-script@v6
+        uses: thollander/actions-comment-pull-request@v3
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '⚠️ Warning: [the latest commit "${{ github.event.pull_request.head.label }}"](https://github.com/${{github.event.pull_request.base.repo.owner.name}}/${{github.event.pull_request.base.repo.name}}/commit/${{github.event.pull_request.head.sha}}) **does not pass ESLint**!'
-            })
+          message: |
+           ⚠️ Warning: [the latest commit "${{ github.event.pull_request.head.label }}"](https://github.com/${{ github.event.pull_request.head.repo.full_name }}/commit/${{ github.event.pull_request.head.sha }}) **does not pass ESLint**!
