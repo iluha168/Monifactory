@@ -1,3 +1,4 @@
 * text=auto
 
+kubejs/**.js eol=crlf
 kubejs/client_scripts/JEI.js linguist-generated=false
