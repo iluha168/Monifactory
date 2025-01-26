@@ -16,7 +16,7 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     steps:
-      - if: needs.lint.outputs.outcome == 'failure'
+      - if: ${{ needs.lint.outputs.outcome == 'failure' }}
         uses: actions/github-script@v6
         with:
           script: |

@@ -29,6 +29,7 @@ jobs:
         id: eslint
         run: |
           cd ${{ github.workspace }}/${{ inputs.folder }}
+          npm install
           npx eslint
         shell: bash
         continue-on-error: true
