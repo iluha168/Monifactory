@@ -24,6 +24,9 @@
         },{
             "name": "Workflows",
             "path": "../.github/workflows"
+        },{
+            "name": "Logs",
+            "path": "../logs"
         }
     ],
     "settings": {}
