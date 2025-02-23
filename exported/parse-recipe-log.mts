@@ -8,6 +8,10 @@ const zCategory = z.object({
 	type: z.string().startsWith("gtceu:"),
 })
 
+export type RequiredSome<T, K extends keyof T> = {
+	[P in keyof T]: P extends K ? NonNullable<T[P]> : T[P]
+}
+
 export const parsed = Deno.readTextFileSync(locate("../logs/kubejs/server.log"))
 	.split("\n")
 	.values()
@@ -45,7 +49,7 @@ export const parsed = Deno.readTextFileSync(locate("../logs/kubejs/server.log"))
 			Deno.exit()
 		}
 		return data?.type !== null
-	}) as NonNullable<Recipe>[]
+	}) as RequiredSome<Recipe, "type">[]
 
 if (import.meta.main) {
 	Deno.writeTextFileSync(

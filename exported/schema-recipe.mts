@@ -362,14 +362,15 @@ export const zRecipe = z.discriminatedUnion("type", [
 		result: zIdentifier,
 	}),
 	zCraftingConditions.extend({
-		// deno-fmt-ignore
-		type: z.enum([ 
-			"minecraft:crafting_shaped", "crafting_shaped",
+		type: z.enum([
+			"minecraft:crafting_shaped",
+			"crafting_shaped",
 			"gtceu:crafting_shaped_fluid_container",
-			"endertanks:crafting", "enderchests:crafting",
+			"endertanks:crafting",
+			"enderchests:crafting",
 			"sophisticatedstorage:shulker_box_from_chest",
 		])
-			.transform(() => "minecraft:crafting_shaped"),
+			.transform(() => "minecraft:crafting_shaped" as const),
 		result: zWaterframesFix(zItemObjCount.merge(zItemNBTObj)),
 		pattern: zCraftingPattern,
 		key: zCraftingKeyMap,
