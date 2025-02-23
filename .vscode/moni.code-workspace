@@ -27,6 +27,9 @@
         },{
             "name": "Logs",
             "path": "../logs"
+        },{
+            "name": "Exports",
+            "path": "../exported"
         }
     ],
     "settings": {}

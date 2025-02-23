@@ -478,6 +478,7 @@ export const zRecipe = z.discriminatedUnion("type", [
 		input: zItemOrTagObj,
 		entity_type: zIdentifier.optional(),
 		mob_category: zIdentifier.optional(),
+		souldata: z.literal("engine").optional()
 	}),
 	z.strictObject({
 		type: z.literal("enderio:slicing"),
@@ -572,7 +573,6 @@ export const zRecipe = z.discriminatedUnion("type", [
 	// Ignored
 	z.object({
 		type: z.enum([
-			"gtceu:crafting_tool_head_replace/misc",
 			"almostunified:client_recipe_tracker",
 			"chiselsandbits:modification_table",
 			"framedblocks:frame",
@@ -585,6 +585,9 @@ export const zRecipe = z.discriminatedUnion("type", [
 			"waystones:warp_plate",
 			"functionalstorage:framed_recipe",
 			"hangglider:copy_tag_shapeless_recipe",
+
+			"gtceu:crafting_tool_head_replace/misc",
+			"gtceu:crafting_facade_cover/misc",
 
 			"framing_templates:template_decoration",
 			"framing_templates:template_copy",
@@ -656,6 +659,7 @@ export const zRecipe = z.discriminatedUnion("type", [
 			"thermal:furnace",
 			"thermal:pulverizer_catalyst",
 			"thermal:magmatic_fuel",
+			"thermal:disenchantment_fuel",
 
 			"nuclearcraft:melter",
 			"nuclearcraft:manufactory",
@@ -681,6 +685,7 @@ export const zRecipe = z.discriminatedUnion("type", [
 			"nuclearcraft:gas_scrubber",
 			"nuclearcraft:alloy_smelter",
 			"nuclearcraft:extractor",
+			"nuclearcraft:shielding",
 
 			"enderio:painting",
 			"enderio:enchanting",

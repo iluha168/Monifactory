@@ -8,7 +8,7 @@ const zCategory = z.object({
 	type: z.string().startsWith("gtceu:"),
 })
 
-export const parsed = Deno.readTextFileSync(locate("./kubejs/server.log"))
+export const parsed = Deno.readTextFileSync(locate("../logs/kubejs/server.log"))
 	.split("\n")
 	.values()
 	.map((line) => {

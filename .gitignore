@@ -2,6 +2,7 @@
 
 !/config-overrides
 !/kubejs
+!/exported
 !/defaultconfigs
 !/.gitignore
 !/.gitattributes
