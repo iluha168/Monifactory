@@ -478,7 +478,7 @@ export const zRecipe = z.discriminatedUnion("type", [
 		input: zItemOrTagObj,
 		entity_type: zIdentifier.optional(),
 		mob_category: zIdentifier.optional(),
-		souldata: z.literal("engine").optional()
+		souldata: z.literal("engine").optional(),
 	}),
 	z.strictObject({
 		type: z.literal("enderio:slicing"),
