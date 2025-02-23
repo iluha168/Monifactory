@@ -1,0 +1,5 @@
+{
+    "tasks": {
+        "gen-json": "deno run -RW parse-recipe-log.mts"
+    }
+}
