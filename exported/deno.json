@@ -1,5 +1,6 @@
 {
 	"tasks": {
-		"gen-json": "deno run -RW parse-recipe-log.mts"
+		"gen-json": "deno run -RW parse-recipe-log.mts",
+		"fmt": "deno fmt --indent-width 4 --no-semicolons --use-tabs --line-width 200 ./*.mts"
 	}
 }
