@@ -1,12 +1,7 @@
-import { z, ZodError } from "https://deno.land/x/zod@v3.24.2/mod.ts"
+import { ZodError } from "https://deno.land/x/zod@v3.24.2/mod.ts"
 import { Recipe, zRecipe } from "./schema-recipe.mts"
 
 const locate = (relative: string) => import.meta.resolve(relative).slice("file://".length)
-
-const zCategory = z.object({
-	category: z.string(),
-	type: z.string().startsWith("gtceu:"),
-})
 
 export type RequiredSome<T, K extends keyof T> = {
 	[P in keyof T]: P extends K ? NonNullable<T[P]> : T[P]
@@ -27,15 +22,6 @@ export const parsed = Deno.readTextFileSync(locate("../logs/kubejs/server.log"))
 		}
 	})
 	.filter((recipe) => recipe !== null)
-	.map((recipe) => {
-		const { success, data } = zCategory.safeParse(recipe)
-		if (success) {
-			recipe.type += "/" + data.category
-			delete recipe.category
-		}
-		return recipe
-	})
-	.toArray()
 	.filter((recipe) => {
 		const { success, error, data } = zRecipe.safeParse(recipe)
 		if (!success) {
@@ -49,12 +35,12 @@ export const parsed = Deno.readTextFileSync(locate("../logs/kubejs/server.log"))
 			Deno.exit()
 		}
 		return data?.type !== null
-	}) as RequiredSome<Recipe, "type">[]
+	}) as Iterable<RequiredSome<Recipe, "type">>
 
 if (import.meta.main) {
 	Deno.writeTextFileSync(
 		locate("./recipes.json"),
-		JSON.stringify(parsed),
+		JSON.stringify(Array.from(parsed)),
 		{ append: false },
 	)
 }
