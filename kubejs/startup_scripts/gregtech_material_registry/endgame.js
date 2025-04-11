@@ -56,11 +56,11 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
     event.create("omnium")
         .ingot()
+        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .element(GTElements.get("omnium"))
         .color(0xffffff).iconSet("omnium")
         .flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_BOLT_SCREW, GTMaterialFlags.GENERATE_FRAME, GTMaterialFlags.GENERATE_SMALL_GEAR)
         .cableProperties(GTValues.V[GTValues.UEV], 64, 8, false)
-        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
 
     event.create("omnic_acid")
         .dust()
@@ -82,6 +82,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0x6D473E)
         .iconSet("dull")
         .addOreByproducts(GTMaterials.Obsidian, GTMaterials.Obsidian, GTMaterials.RarestMetalMixture)
+        .ignoredTagPrefixes([TagPrefix.nugget, TagPrefix.block, TagPrefix.dustTiny, TagPrefix.rawOre, TagPrefix.rawOreBlock])
+
     event.create("activated_netherite")
         .ingot()
         .element(GTElements.get("activated_netherite"))
@@ -93,12 +95,14 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
     event.create("sculk_bioalloy")
         .ingot()
+        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .color(0xffffff)
         .iconSet("sculk_alloy")
         .flags(GTMaterialFlags.EXCLUDE_BLOCK_CRAFTING_BY_HAND_RECIPES, GTMaterialFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES, GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_RING, GTMaterialFlags.GENERATE_ROUND, GTMaterialFlags.GENERATE_GEAR, GTMaterialFlags.GENERATE_SMALL_GEAR, GTMaterialFlags.GENERATE_SPRING, GTMaterialFlags.GENERATE_BOLT_SCREW, GTMaterialFlags.GENERATE_FRAME, GTMaterialFlags.NO_SMELTING, GTMaterialFlags.NO_WORKING)
 
     event.create("infinity")
         .ingot()
+        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .element(GTElements.get("infinity"))
         .color(0xffffff)
         .iconSet("infinity")
@@ -106,6 +110,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
     event.create("eltz")
         .ingot()
+        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .element(GTElements.get("eltz"))
         .color(0xffffff)
         .iconSet("eltz")
@@ -125,6 +130,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
     event.create("monium")
         .ingot()
+        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .element(GTElements.get("monium"))
         .color(0xffffff)
         .iconSet("monium")

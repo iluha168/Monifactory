@@ -47,6 +47,12 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xf9fbda)
         .components("1x calcium", "2x chlorine", "8x oxygen")
 
+    event.create("extraterrestrial_metal_mixture")
+        .dust()
+        .color(0x734120).secondaryColor(0x555B60).iconSet(GTMaterialIconSet.METALLIC)
+        .flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+        .ignoredTagPrefixes([TagPrefix.dustTiny, TagPrefix.dustSmall])
+
     event.create("fluorite")
         .gem()
         .ore()
@@ -64,36 +70,90 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xA60000)
         .iconSet(GTMaterialIconSet.RUBY)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.plate,
+            TagPrefix.rod,
+        ])
 
     event.create("enori")
         .gem()
         .color(0xEDE6FF)
         .iconSet(GTMaterialIconSet.GEM_VERTICAL)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.plate,
+            TagPrefix.rod,
+        ])
 
     event.create("void")
         .gem()
         .color(0x0F0F0F)
         .iconSet(GTMaterialIconSet.ROUGH)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.plate,
+            TagPrefix.rod,
+        ])
 
     event.create("palis")
         .gem()
         .color(0x1C1C89)
         .iconSet(GTMaterialIconSet.LAPIS)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.plate,
+            TagPrefix.rod,
+        ])
 
     event.create("diamatine")
         .gem()
         .color(0x8B8DF3)
         .iconSet(GTMaterialIconSet.FINE)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.plate,
+            TagPrefix.rod,
+        ])
 
     event.create("emeradic")
         .gem()
         .color(0x09E103)
         .iconSet(GTMaterialIconSet.GEM_HORIZONTAL)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.plate,
+            TagPrefix.rod,
+        ])
 
     event.create("black_quartz")
         .gem()
@@ -109,36 +169,84 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xA60000)
         .iconSet(GTMaterialIconSet.RUBY)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.rod,
+        ])
 
     event.create("enori_empowered")
         .gem().fluid()
         .color(0xEDE6FF)
         .iconSet(GTMaterialIconSet.GEM_VERTICAL)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.rod,
+        ])
 
     event.create("void_empowered")
         .gem().fluid()
         .color(0x0F0F0F)
         .iconSet(GTMaterialIconSet.ROUGH)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.rod,
+        ])
 
     event.create("palis_empowered")
         .gem().fluid()
         .color(0x1C1C89)
         .iconSet(GTMaterialIconSet.LAPIS)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.rod,
+        ])
 
     event.create("diamatine_empowered")
         .gem().fluid()
         .color(0x8B8DF3)
         .iconSet(GTMaterialIconSet.FINE)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.rod,
+        ])
 
     event.create("emeradic_empowered")
         .gem().fluid()
         .color(0x09E103)
         .iconSet(GTMaterialIconSet.GEM_HORIZONTAL)
         .flags(GTMaterialFlags.GENERATE_GEAR)
+        .ignoredTagPrefixes([
+            TagPrefix.dust,
+            TagPrefix.dustSmall,
+            TagPrefix.dustTiny,
+            TagPrefix.gemExquisite,
+            TagPrefix.gemFlawless,
+            TagPrefix.rod,
+        ])
 })
 
 
@@ -171,6 +279,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .dust()
         .color(0x243e1c)
         .components("1x thorium", "4x oxygen", "4x hydrogen")
+        .formula("Th(OH)4")
 
     event.create("terbium_salt")
         .dust()
@@ -222,6 +331,19 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_DENSE)
         .components("6x trinium", "2x naquadah", "1x carbon")
         .blastTemp(8747, "higher", 131072, 1200)
+
+    event.create("rotten_meat")
+        .dust(1)
+        .color(0xe8543a).secondaryColor(0x684a09).iconSet(GTMaterialIconSet.SAND)
+        .ignoredTagPrefixes([TagPrefix.dustTiny, TagPrefix.dustSmall])
+
+    event.create("saline_antisceptic")
+        .fluid()
+        .color(0x99dce5)
+
+    event.create("rotten_sludge")
+        .fluid()
+        .color(0x997700)
 })
 
 GTCEuStartupEvents.materialModification(event => {
@@ -231,23 +353,6 @@ GTCEuStartupEvents.materialModification(event => {
     GTMaterials.Glowstone.setComponents("1x tricalcium_phosphate", "1x gold")
     GTMaterials.Glowstone.setFormula("AuCa3(PO4)2", true)
 
-    GTMaterials.get("energetic_alloy").setFormula("Au2(Si(FeS2)5(CrAl2O3)Hg3)(AuCa3(PO4)2)");
-    GTMaterials.get("vibrant_alloy").setFormula("Au2(Si(FeS2)5(CrAl2O3)Hg3)(AuCa3(PO4)2)(BeK4N5)");
-    GTMaterials.get("end_steel").setFormula("Fe(SiO2)(Au2(Si(FeS2)5(CrAl2O3)Hg3)(AuCa3(PO4)2)(BeK4N5))");
-
-    GTMaterials.get("microversium").setFormula("Fe2(Si(FeS2)5(CrAl2O3)Hg3)(AuCa3(PO4)2)D")
-    GTMaterials.get("thorium_hydroxide").setFormula("Th(OH)4")
-
-    const tagPrefixes = [
-        TagPrefix.nugget,
-        TagPrefix.block,
-        TagPrefix.dustTiny,
-        TagPrefix.rawOre,
-        TagPrefix.rawOreBlock
-    ]
-
+    // We keep Ingots in the material definition so we can replace it in the Ore Processing Diagram with vanilla Netherite Scrap, then remove it here.
     TagPrefix.ingot.setIgnored(GTMaterials.get("netherite_scrap"), Ingredient.of("minecraft:netherite_scrap"))
-    tagPrefixes.forEach((prefix) => {
-        prefix["setIgnored(com.gregtechceu.gtceu.api.data.chemical.material.Material)"](GTMaterials.get("netherite_scrap"));
-    })
 })
