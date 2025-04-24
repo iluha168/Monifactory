@@ -24,7 +24,12 @@
         },{
             "name": "Workflows",
             "path": "../.github/workflows"
+        },{
+            "name": "EMI dump parser",
+            "path": "../emi-dump-parser",
         }
     ],
-    "settings": {}
+    "settings": {
+        "deno.enable": true
+    }
 }
