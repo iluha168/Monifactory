@@ -1,7 +1,7 @@
-import { categories } from "../index.mts";
+import { fetchCategory } from "../index.mts";
 import { SimpleStack } from "../schema.mts";
 
-const assemblyLine = categories.find(cat => cat.id === "gtceu:assembly_line")
+const assemblyLine = await fetchCategory("gtceu:assembly_line")
 if (!assemblyLine)
     Deno.exit(1)
 
