@@ -1,6 +1,6 @@
 {
 	"tasks": {
-		"fmt": "deno fmt --indent-width 4 --no-semicolons --use-tabs --line-width 200 ./*.mts"
+		"fmt": "deno fmt --indent-width 4 --no-semicolons --use-tabs --line-width 200"
 	},
 	"imports": {
 		"zod": "https://deno.land/x/zod@v3.24.1/mod.ts",
