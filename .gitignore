@@ -3,6 +3,7 @@
 !/config-overrides
 !/kubejs
 !/defaultconfigs
+!/exports
 !/.gitignore
 !/.gitattributes
 !/manifest.json
