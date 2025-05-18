@@ -1,0 +1,19 @@
+{
+	"imports": {
+		"zod": "npm:zod@^3.24.4"
+	},
+	"fmt": {
+		"bracePosition": "sameLine",
+		"indentWidth": 4,
+		"lineWidth": 200,
+		"newLineKind": "lf",
+		"semiColons": false,
+		"useTabs": true,
+		"useBraces": "preferNone",
+		"trailingCommas": "onlyMultiLine",
+		"singleQuote": false,
+		"spaceSurroundingProperties": true,
+		"spaceAround": false,
+		"typeLiteral.separatorKind": "comma"
+	}
+}
