@@ -1,6 +1,7 @@
 {
 	"imports": {
-		"zod": "npm:zod@^3.24.4"
+		"zod": "npm:zod@^3.24.4",
+		"fromFileUrl": "jsr:@std/path@^1.0.9/from-file-url"
 	},
 	"fmt": {
 		"bracePosition": "sameLine",
@@ -15,5 +16,8 @@
 		"spaceSurroundingProperties": true,
 		"spaceAround": false,
 		"typeLiteral.separatorKind": "comma"
+	},
+	"tasks": {
+		"recipes": "deno run -RW src/index.mts recipes"
 	}
 }
