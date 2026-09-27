@@ -28,3 +28,11 @@ node index.ts switch-pack-mode --pack-mode=hard
 
 The build script can also execute the coremod's mode switcher, just like the button on the title screen.
 The mode change is repository-wide, every other build task infers this state.
+
+## Running a dedicated server
+
+```sh
+node index.ts run-dedicated-server
+```
+
+Runs the dedicated server by assembling the modpack entirely from scratch from your git checkout!
