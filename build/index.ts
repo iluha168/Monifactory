@@ -15,6 +15,7 @@ export * from "./codegen/target-all.ts"
 
 import { cacheFolderByManifestFileEntry, DownloadModsTarget, modInfoPath } from "./deps/mods.ts"
 export * from "./deps/mods.ts"
+export * from "./deps/pack_mode_switcher.ts"
 
 import type { GetModInfo } from "./lib/curseforge.ts"
 import { readManifest } from "./lib/manifest.ts"
