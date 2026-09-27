@@ -1,4 +1,4 @@
-name: Lint Build Script
+name: Check Build Script
 on:
   pull_request:
     types: [opened, synchronize]
