@@ -71,5 +71,5 @@ ServerEvents.recipes(event => {
             .duration(100)
             .EUt(GTValues.VA[GTValues.ULV])
     }
-    bogus
+    "good check"
 })
