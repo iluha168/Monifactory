@@ -1152,7 +1152,7 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:hv_output_bus", "ae2:cable_interface", "2x ae2:speed_card")
         .itemOutputs("gtceu:me_output_bus")
         .duration(300)
-        .EUt(GTValues.VA[GTValues.HV], 1)
+        .EUt(GTValues.VA[GTValues.HV])
         .addMaterialInfo(true)
 
     // ME Output Hatch
@@ -1161,7 +1161,7 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:hv_output_hatch", "ae2:cable_interface", "2x ae2:speed_card")
         .itemOutputs("gtceu:me_output_hatch")
         .duration(300)
-        .EUt(GTValues.VA[GTValues.HV], 1)
+        .EUt(GTValues.VA[GTValues.HV])
         .addMaterialInfo(true)
 
     // ME Input Bus
@@ -1170,7 +1170,7 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:hv_input_bus", "ae2:cable_interface", "2x ae2:speed_card")
         .itemOutputs("gtceu:me_input_bus")
         .duration(300)
-        .EUt(GTValues.VA[GTValues.HV], 1)
+        .EUt(GTValues.VA[GTValues.HV])
         .addMaterialInfo(true)
 
     // ME Input Hatch
@@ -1179,7 +1179,7 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:hv_input_hatch", "ae2:cable_interface", "2x ae2:speed_card")
         .itemOutputs("gtceu:me_input_hatch")
         .duration(300)
-        .EUt(GTValues.VA[GTValues.HV], 1)
+        .EUt(GTValues.VA[GTValues.HV])
         .addMaterialInfo(true)
 
     // ME Stocking Input Bus
@@ -1188,7 +1188,7 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:ev_input_bus", "ae2:cable_interface", "gtceu:ev_conveyor_module", "gtceu:ev_sensor", "4x ae2:speed_card")
         .itemOutputs("gtceu:me_stocking_input_bus")
         .duration(300)
-        .EUt(GTValues.VA[GTValues.EV], 1)
+        .EUt(GTValues.VA[GTValues.EV])
         .addMaterialInfo(true)
 
     // ME Stocking Input Hatch
@@ -1197,7 +1197,7 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:ev_input_hatch", "ae2:cable_interface", "gtceu:ev_electric_pump", "gtceu:ev_sensor", "4x ae2:speed_card")
         .itemOutputs("gtceu:me_stocking_input_hatch")
         .duration(300)
-        .EUt(GTValues.VA[GTValues.EV], 1)
+        .EUt(GTValues.VA[GTValues.EV])
         .addMaterialInfo(true)
 
     // ME Pattern Buffer
@@ -1209,7 +1209,7 @@ ServerEvents.recipes(event => {
         .itemOutputs("gtceu:me_pattern_buffer")
         .circuit(1)
         .duration(600)
-        .EUt(GTValues.VA[GTValues.IV], 1)
+        .EUt(GTValues.VA[GTValues.IV])
 
     // ME Pattern Buffer Proxy
     event.remove({ id: "gtceu:research_station/1x_gtceu_me_pattern_buffer" })
@@ -1220,7 +1220,7 @@ ServerEvents.recipes(event => {
         .itemOutputs("gtceu:me_pattern_buffer_proxy")
         .scannerResearch("gtceu:me_pattern_buffer")
         .duration(600)
-        .EUt(GTValues.VA[GTValues.LuV], 1)
+        .EUt(GTValues.VA[GTValues.LuV])
 
     // Expanded ME Pattern Buffer
 
@@ -1232,7 +1232,7 @@ ServerEvents.recipes(event => {
         .itemOutputs("gtmutils:expanded_me_pattern_buffer")
         .circuit(2)
         .duration(4000)
-        .EUt(GTValues.VA[GTValues.IV], 1)
+        .EUt(GTValues.VA[GTValues.IV])
 
     // Expanded ME Pattern Buffer Proxy
     event.remove({ id: "gtceu:research_station/1x_gtceu_me_pattern_buffer_proxy" })
@@ -1243,7 +1243,7 @@ ServerEvents.recipes(event => {
         .itemOutputs("gtmutils:expanded_me_pattern_buffer_proxy")
         .scannerResearch("gtceu:me_pattern_buffer_proxy")
         .duration(600)
-        .EUt(GTValues.VA[GTValues.LuV], 1)
+        .EUt(GTValues.VA[GTValues.LuV])
 
     // ME Tag Stocking Input Bus
     event.remove({ output: "gtmutils:me_tag_stocking_input_bus" })
@@ -1251,7 +1251,7 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:me_stocking_input_bus", "2x #gtceu:circuits/ev", "4x ae2:engineering_processor", "gtceu:item_tag_filter")
         .itemOutputs("gtmutils:me_tag_stocking_input_bus")
         .duration(400)
-        .EUt(GTValues.VA[GTValues.EV], 1)
+        .EUt(GTValues.VA[GTValues.EV])
 
     // ME Tag Stocking Input Hatch
     event.remove({ output: "gtmutils:me_tag_stocking_input_hatch" })
@@ -1259,6 +1259,6 @@ ServerEvents.recipes(event => {
         .itemInputs("gtceu:me_stocking_input_hatch", "2x #gtceu:circuits/ev", "4x ae2:engineering_processor", "gtceu:fluid_tag_filter")
         .itemOutputs("gtmutils:me_tag_stocking_input_hatch")
         .duration(400)
-        .EUt(GTValues.VA[GTValues.EV], 1)
+        .EUt(GTValues.VA[GTValues.EV])
 
 })
