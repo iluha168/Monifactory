@@ -1145,7 +1145,7 @@ ServerEvents.recipes(event => {
         F: "gtceu:fluix_plate",
         S: "gtceu:mv_sensor"
     }).id("kubejs:ae2netanalyser/network_analyser")
-    //Remove these recipes (minus the GTMUtils one) when the mod is updated to GTM V8
+    // Remove these recipes (minus the GTMUtils one) when the mod is updated to GTM V8
     // ME Output Bus
     event.remove({ output: "gtceu:me_output_bus" })
     event.recipes.gtceu.assembler("kubejs:me_output_bus")
