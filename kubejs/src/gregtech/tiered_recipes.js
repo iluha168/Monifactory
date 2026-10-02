@@ -138,6 +138,8 @@ function parseRecipe(recipe) {
     let [newInputItems, newOutputItems] = [recipe.inputs?.item, recipe.outputs?.item].map(items =>
         items && items.map(i => {
             let c = i.content
+            if (Array.isArray(c) || !("type" in c))
+                throw new Error("Recipe uses complicated item stack, I'd rather explode")
             switch(c.type) {
             case "gtceu:circuit":
                 return setCircuitNumber(c.configuration)
@@ -172,6 +174,8 @@ function parseRecipe(recipe) {
             if (i.chance !== i.maxChance)
                 throw new Error("Chanced fluid recipes are not yet supported")
             let c = i.content
+            if (!("value" in c))
+                throw new Error("Ranged fluid recipes are not yet supported")
             let [val] = c.value
             if (val === undefined)
                 return undefined
@@ -259,7 +263,9 @@ function parseRecipe(recipe) {
         if(circuitNumber !== null)
             newRecipe = newRecipe.circuit(circuitNumber)
         if(eut !== null)
-            newRecipe = newRecipe.EUt(IOEnergyStack.fromVoltage(eut))
+            newRecipe = newRecipe.EUt(typeof eut === "number"
+                ? IOEnergyStack.fromVoltage(eut)
+                : IOEnergyStack.fromVA(eut.voltage ?? 0, eut.amperage ?? 1))
         if (recipeConditions) {
             /** @type {import("../../dx/typings/GTJSONRecipe.d.mts").GTJSONRecipeCondition[]} */
             // @ts-expect-error
@@ -323,7 +329,7 @@ function generateAlternatives(event, javaRecipe) {
 
     // Soldering alloy tiers
     if(recipe.inputs?.fluid && recipe.inputs.fluid.some(i =>
-        i.content.value.some(v => "tag" in v
+        "value" in i.content && i.content.value.some(v => "tag" in v
             ? v.tag === "forge:tin" || RegExp(/soldering_alloy/).test(v.tag)
             : v.fluid === "gtceu:tin" || RegExp(/soldering_alloy/).test(v.fluid)
         )
@@ -358,6 +364,7 @@ function generateAlternatives(event, javaRecipe) {
 
     // Complex SMDs
     if(recipe.inputs?.item && recipe.inputs.item.some(i =>
+        !Array.isArray(i.content) && "type" in i.content &&
         i.content.type === "gtceu:sized" &&
         "item" in i.content.ingredient &&
         i.content.ingredient.item.startsWith("gtceu:advanced_smd_") &&
@@ -385,7 +392,7 @@ function generateAlternatives(event, javaRecipe) {
 
     // Oxalic Acid etchant
     if(recipe.inputs?.fluid && recipe.inputs.fluid.some(i =>
-        i.content.value.some(v => "tag" in v
+        "value" in i.content && i.content.value.some(v => "tag" in v
             ? v.tag === "forge:iron_iii_chloride"
             : v.fluid === "gtceu:iron_iii_chloride"
         ) && recipeName.match(/circuit_board_iron3$/)
@@ -408,7 +415,7 @@ function generateAlternatives(event, javaRecipe) {
 
     // Hexafluorosilicic circuit boards
     if(recipe.inputs?.fluid && recipe.inputs.fluid.some(i =>
-        i.content.value.some(v => "tag" in v
+        "value" in i.content && i.content.value.some(v => "tag" in v
             ? v.tag === "forge:sulfuric_acid"
             : v.fluid === "gtceu:sulfuric_acid"
         ) && recipeName.match(/board/)

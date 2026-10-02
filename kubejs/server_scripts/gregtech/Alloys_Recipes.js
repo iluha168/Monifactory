@@ -257,7 +257,7 @@ ServerEvents.recipes(event => {
     // Thermal Expansion ABS recipe fixes
     /**
      * @param {RegExp | string} recipeMatcherID
-     * @param {import("../../dx/typings/GTJSONRecipe.mjs").GTJSONRecipeItemIngredient[]} ingredients
+     * @param {(import("../../dx/typings/GTJSONRecipe.mjs").MCIngredientValue & { count: number })[]} ingredients
      */
     function addInputItems(recipeMatcherID, ingredients) {
         /** @type {import("../../dx/typings/GTJSONRecipe.mjs").GTJSONRecipe["inputs"]["item"]} */
