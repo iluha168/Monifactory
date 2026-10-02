@@ -8,6 +8,12 @@ import { MoniLabs } from "./dx/eslint-plugin/custom-plugin.mjs";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+    {
+        // Code-gen.
+        ignores: [
+            "server_scripts/gregtech/tiered_recipes.js"
+        ],
+    },
     js.configs.recommended,
     {
         plugins: {

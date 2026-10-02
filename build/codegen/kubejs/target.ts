@@ -1,0 +1,30 @@
+import Juke from "juke-build"
+
+const npm = (...args: string[]) => Juke.exec("npm", args, {
+    cwd: "kubejs",
+    shell: true,
+})
+
+const KubeJsInstallDepsTarget = new Juke.Target({
+    name: "kubejs-install-deps",
+    inputs: ["kubejs/package.json", "kubejs/package-lock.json"],
+    outputs: ["kubejs/node_modules/.package-lock.json"],
+    executes: () => npm("ci"),
+})
+
+export const CodegenKubeJsTarget = new Juke.Target({
+    dependsOn: [KubeJsInstallDepsTarget],
+    inputs: [
+        "kubejs/src/**",
+        "kubejs/dx/babel-plugins/**",
+        "kubejs/babel.config.mjs",
+        "kubejs/rollup.config.mjs",
+        "kubejs/package-lock.json",
+    ],
+    outputs: [
+        "kubejs/client_scripts/",
+        "kubejs/server_scripts/",
+        "kubejs/startup_scripts/",
+    ],
+    executes: () => npm("run", "--silent", "build"),
+})

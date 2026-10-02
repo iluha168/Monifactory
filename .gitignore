@@ -176,6 +176,7 @@ defaultconfigs/ftbultimine/ftbultimine-server.snbt
 
 # Hide code-generated files
 kubejs/client_scripts/Dev_Capes.js
+kubejs/server_scripts/gregtech/tiered_recipes.js
 config/fancymenu/customization/pack_credit_screen_layout.txt
 config/fancymenu/assets/pack-version.txt
 **/en_ud.local

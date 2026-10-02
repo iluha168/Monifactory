@@ -1,4 +1,3 @@
-// priority: -9999
 // This file also gens recipes for kubejs added recipes!
 // @ts-check You might need probejs to look at this file with a straight face :P
 
