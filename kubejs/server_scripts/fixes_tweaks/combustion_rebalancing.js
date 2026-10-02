@@ -16,6 +16,7 @@ ServerEvents.recipes(event => {
 
     event.recipes.gtceu.mixer("diesel")
         .inputFluids("gtceu:light_fuel 5000", "gtceu:heavy_fuel 1000")
+        .outputFluids("gtceu:diesel 6000")
         .duration(30)
         .EUt(GTValues.VA[GTValues.LV])
 
