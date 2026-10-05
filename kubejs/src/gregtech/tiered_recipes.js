@@ -7,8 +7,8 @@
  */
 
 
-/** @typedef {import("../../dx/typings/GTJSONRecipe.d.mts").GTJSONRecipe} GTJSONRecipe */
-/** @typedef {import("../../dx/typings/GTJSONRecipe.d.mts").MCIdentifier} MCIdentifier */
+/** @typedef {import("../../dx/typings/GTJSONRecipe").GTJSONRecipe} GTJSONRecipe */
+/** @typedef {import("../../dx/typings/GTJSONRecipe").MCIdentifier} MCIdentifier */
 
 const ExtendedOutputItem = Java.loadClass("com.gregtechceu.gtceu.integration.kjs.recipe.components.ExtendedOutputItem")
 
@@ -267,7 +267,7 @@ function parseRecipe(recipe) {
                 ? IOEnergyStack.fromVoltage(eut)
                 : IOEnergyStack.fromVA(eut.voltage ?? 0, eut.amperage ?? 1))
         if (recipeConditions) {
-            /** @type {import("../../dx/typings/GTJSONRecipe.d.mts").GTJSONRecipeCondition[]} */
+            /** @type {import("../../dx/typings/GTJSONRecipe").GTJSONRecipeCondition[]} */
             // @ts-expect-error
             let conditions = recipeConditions.map(cond => "data" in cond
                 ? Object.assign({ type: cond.type }, cond.data)
