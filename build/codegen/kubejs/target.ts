@@ -22,9 +22,9 @@ export const CodegenKubeJsTarget = new Juke.Target({
         "kubejs/package-lock.json",
     ],
     outputs: [
-        "kubejs/client_scripts/",
-        "kubejs/server_scripts/",
-        "kubejs/startup_scripts/",
+        "kubejs/startup_scripts/bundle.js",
+        "kubejs/server_scripts/bundle.js",
+        "kubejs/client_scripts/bundle.js",
     ],
     executes: () => npm("run", "--silent", "build"),
 })

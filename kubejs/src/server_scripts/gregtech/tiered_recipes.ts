@@ -6,7 +6,7 @@
  */
 
 
-import type { GTJSONRecipe, GTJSONRecipeCondition, MCIdentifier } from "../../dx/typings/GTJSONRecipe.ts"
+import type { GTJSONRecipe, GTJSONRecipeCondition, MCIdentifier } from "../../types/GTJSONRecipe.ts"
 
 const ExtendedOutputItem = Java.loadClass("com.gregtechceu.gtceu.integration.kjs.recipe.components.ExtendedOutputItem")
 

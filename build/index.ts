@@ -66,7 +66,7 @@ const symlinkSync = (ourDir: fs.PathLike, newDir: fs.PathLike) => {
 
 /** A filter for the built client/server zips. */
 const packFileBlacklist = (source: string) =>
-    path.basename(source) !== "node_modules"
+    !["node_modules", ".tsbuild"].includes(path.basename(source))
 
 const cpMods = (targetDir: string, filter?: (file: string) => boolean) => {
     // Cache might contain more files than the manifest!

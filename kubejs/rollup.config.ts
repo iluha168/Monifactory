@@ -13,8 +13,11 @@ import hoistVars from "./dx/babel-plugins/hoist-vars.ts"
 
 const extensions = [".ts", ".js"]
 
-export default {
-    input: "src/index.ts",
+/** KubeJS entrypoint directories. */
+const entrypoints = ["startup_scripts", "server_scripts", "client_scripts"]
+
+export default entrypoints.map<RollupOptions>(entrypoint => ({
+    input: `src/${entrypoint}/index.ts`,
     plugins: [
         nodeResolve({  // Resolves implicit imports from node_modules.
             extensions
@@ -30,7 +33,7 @@ export default {
         }),
     ],
     output: {
-        file: "server_scripts/gregtech/tiered_recipes.js", // Prototype, okay!!
+        file: `${entrypoint}/bundle.js`,
         format: "iife",
         banner: [
             "// priority: -9999",
@@ -55,4 +58,4 @@ export default {
             }),
         ],
     },
-} satisfies RollupOptions
+}))

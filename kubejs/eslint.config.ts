@@ -11,7 +11,8 @@ export default [
     {
         // Code-gen.
         ignores: [
-            "server_scripts/gregtech/tiered_recipes.js",
+            "*_scripts/bundle.js",
+            ".tsbuild/",
         ],
     },
     js.configs.recommended,
