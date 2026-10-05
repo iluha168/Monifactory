@@ -37,7 +37,12 @@ export default {
             terser({
                 compress: false, // Do not enable! Rewrites code to JavaScript KubeJS bugs out on.
                 mangle: true,
-                format: { comments: /^ (priority:|GENERATED FILE)/ }, // Keep the banner only.
+                keep_fnames: true, // KubeJS has no runtime renaming??
+                keep_classnames: true,
+                format: {
+                    comments: /^ (priority:|GENERATED FILE)/, // Keep the banner only.
+                    ascii_only: true,
+                },
             }),
         ],
     },
