@@ -7,16 +7,25 @@ import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import terser from "@rollup/plugin-terser"
-import hoistVars from "./dx/babel-plugins/hoist-vars.mjs"
+import type { RollupOptions } from "rollup"
+import babelConfig from "./babel.config.ts"
+import hoistVars from "./dx/babel-plugins/hoist-vars.ts"
 
-/** @type {import("rollup").RollupOptions} */
+const extensions = [".ts", ".js"]
+
 export default {
-    input: "src/index.js",
+    input: "src/index.ts",
     plugins: [
-        nodeResolve(), // Resolves implicit imports from node_modules.
+        nodeResolve({  // Resolves implicit imports from node_modules.
+            extensions
+        }),
         commonjs(), // core-js is written in CJS.
         babel({
+            ...babelConfig,
+            configFile: false,
+            babelrc: false,
             babelHelpers: "runtime",
+            extensions,
             exclude: /node_modules/,
         }),
     ],
@@ -46,4 +55,4 @@ export default {
             }),
         ],
     },
-}
+} satisfies RollupOptions

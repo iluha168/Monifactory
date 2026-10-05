@@ -5,6 +5,7 @@
  * They also backported some newer Rhino features; but they are buggy as hell, e.g. `??`.
  */
 
+import type { TransformOptions } from "@babel/core"
 import runtime from "@babel/runtime/package.json" with { type: "json" }
 import coreJs from "core-js-pure/package.json" with { type: "json" }
 
@@ -31,7 +32,6 @@ const POLYFILL_IMPOSSIBLE = [
     /^esnext\./, // Do not even start to worry about ECMAScript proposals. We are so far from Stage 4 it is crazy.
 ]
 
-/** @type {import("@babel/core").TransformOptions} */
 export default {
     targets: {
         rhino: "1.7.13"
@@ -49,6 +49,9 @@ export default {
                 "transform-literals",
             ],
         }],
+        ["@babel/preset-typescript", {
+            onlyRemoveTypeImports: true,
+        }],
     ],
     plugins: [
         // Polyfills
@@ -63,4 +66,4 @@ export default {
             exclude: [...POLYFILL_BLACKLIST, ...POLYFILL_IMPOSSIBLE],
         }],
     ],
-}
+} satisfies TransformOptions

@@ -17,8 +17,8 @@ export const CodegenKubeJsTarget = new Juke.Target({
     inputs: [
         "kubejs/src/**",
         "kubejs/dx/babel-plugins/**",
-        "kubejs/babel.config.mjs",
-        "kubejs/rollup.config.mjs",
+        "kubejs/babel.config.ts",
+        "kubejs/rollup.config.ts",
         "kubejs/package-lock.json",
     ],
     outputs: [

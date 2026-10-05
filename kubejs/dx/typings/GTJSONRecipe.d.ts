@@ -1,3 +1,7 @@
+/**
+ * JSON-serialized GTM recipe types.
+ */
+
 export type ValueOf<T> = T[keyof T]
 
 export type MCIdentifier = `${string}:${string}`
@@ -109,7 +113,7 @@ export type GTJSONRecipe = {
     // All fields above are 100% complete
 
     recipeConditions?: (GTJSONRecipeCondition | ValueOf<{
-        [T in GTJSONRecipeCondition['type']]: {
+        [T in GTJSONRecipeCondition["type"]]: {
             type: T
             data: Omit<GTJSONRecipeCondition & { type: T }, "type">
         }

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "preserve",
+        "lib": ["ES2023"],
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+
+        "noEmit": true,
+        "erasableSyntaxOnly": true,
+        "verbatimModuleSyntax": true,
+        "allowImportingTsExtensions": true,
+
+        "rootDirs": [
+          "src",
+        ],
+    },
+    "include": [
+        "src",
+        "dx",
+        "*.ts"
+    ]
+}
