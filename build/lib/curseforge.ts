@@ -17,11 +17,13 @@ const zCFModInfo = z.object({
 
 function fetchCurseForge(path: string, init?: RequestInit): Promise<Response> {
     const token = process.env.CF_API_KEY
-    return fetch(`${token ? "https://api.curseforge.com/v1/" : "https://api.curse.tools/v1/cf/"}${path}`, {
+    return fetch(`${token ? "https://api.curseforge.com/v1/" : "https://mod.mcimirror.top/curseforge/v1/"}${path}`, {
         redirect: "follow",
         ...init,
         headers: {
             Accept: "application/json",
+            // https://www.mcimirror.top/guide/rules/register
+            "User-Agent": "MonifactoryBuild/1.0",
             ...(token && { "x-api-key": token }),
             ...init?.headers,
         }

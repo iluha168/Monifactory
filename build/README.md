@@ -5,7 +5,7 @@
 - [install Node and NPM](https://nodejs.org/en/download/current) first. We require **Node 26 or later**.
 - Open your terminal, go into the build folder (`cd build`), and run `npm install` there.
 - Run `node index.ts` to print **list of the available tasks** the build script can do, to confirm it is working.
-- Setup [environment secrets](#environment-secrets) if you'll be using it to launch the game or to create a [build](#build) one can import into any mainstream launcher.
+- (Optional) Setup [environment secrets](#environment-secrets) if you'll be using it to launch the game or to create a [build](#build) one can import into any mainstream launcher.
 
 ### Environment secrets
 Build script requires configuration that depends on you 🫵🫵🫵.
